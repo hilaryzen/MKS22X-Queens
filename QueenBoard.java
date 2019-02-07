@@ -9,4 +9,8 @@ public class QueenBoard {
       }
     }
   }
+
+  public String toString() {
+    ans
+  }
 }
