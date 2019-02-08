@@ -5,6 +5,7 @@ public class Driver {
 
     System.out.println(" ");
 
+    System.out.println(board.addQueen(0,0));
     System.out.println(board.addQueen(4,0));
     System.out.println(board);
   }
