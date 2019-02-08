@@ -45,4 +45,25 @@ public class QueenBoard {
     }
     return false;
   }
+
+  public boolean removeQueen(int r, int c) {
+    if (board[r][c] == -1) {
+      board[r][c] = 0;
+      for (int i = c + 1; i < board.length; i++) {
+        board[r][i]--;
+      }
+      int i = 1;
+      while (r + i < board.length && c + i < board[r].length) {
+        board[r + i][c + i]--;
+        i++;
+      }
+      i = 1;
+      while (r - i >= 0 && c + i < board[r].length) {
+        board[r - i][c + i]--;
+        i++;
+      }
+      return true;
+    }
+    return false;
+  }
 }
