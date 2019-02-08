@@ -20,4 +20,15 @@ public class QueenBoard {
     }
     return ans;
   }
+
+  public boolean addQueen(int r, int c) {
+    if (board[r][c] == 0) {
+      board[r][c] = -1;
+      for (int i = 0; i < board.length; i++) {
+        board[r][c]++;
+      }
+      return true;
+    }
+    return false;
+  }
 }
