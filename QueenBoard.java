@@ -27,6 +27,14 @@ public class QueenBoard {
       for (int i = c + 1; i < board.length; i++) {
         board[r][i]++;
       }
+      int i = 1;
+      while (r + i < board.length && c + i < board[r].length) {
+        board[r + i][c + i]++;
+      }
+      i = 1;
+      while (r - i < board.length && c + i < board[r].length) {
+        board[r - i][c + i]++;
+      }
       return true;
     }
     return false;
