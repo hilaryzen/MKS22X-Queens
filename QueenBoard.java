@@ -81,12 +81,13 @@ public class QueenBoard {
     } else {
       if (addQueen(r,c)) {
         //If queen can be added, move on to next row
-        return solveH(r + 1, c);
+        cols[r] = c;
+        return solveH(r + 1, c, cols);
       } else {
         if (c == board.length - 1) {
           return false;
         } else {
-          return solveH(r, c + 1);
+          return solveH(r, c + 1, cols);
         }
       }
     }
