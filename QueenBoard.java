@@ -64,8 +64,13 @@ public class QueenBoard {
     return false;
   }
 
+  /*
+  *@return false when the board is not solveable and leaves the board filled with zeros;
+  *        true when the board is solveable, and leaves the board in a solved state
+  *@throws IllegalStateException when the board starts with any non-zero value
+  */
   public boolean solve() {
-    return true;
+    return solveH(0,0);
   }
 
   public boolean solveH(int r, int c) {
