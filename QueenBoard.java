@@ -3,11 +3,6 @@ public class QueenBoard {
 
   public QueenBoard(int size) {
     board = new int[size][size];
-    for (int i = 0; i < size; i++) {
-      for (int j = 0; j < size; j++) {
-        board[i][j] = 0;
-      }
-    }
   }
 
   public String toString() {
@@ -65,5 +60,13 @@ public class QueenBoard {
       return true;
     }
     return false;
+  }
+
+  public boolean solve() {
+    return true;
+  }
+
+  public boolean solveH(int r, int c) {
+    return true;
   }
 }
