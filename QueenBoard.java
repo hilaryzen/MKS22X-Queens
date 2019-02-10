@@ -71,7 +71,14 @@ public class QueenBoard {
   public boolean solveH(int r, int c) {
     if (c == board.length) {
       return true;
+    } else {
+      if (addQueen(r,c)) {
+        return solveH(0, c + 1);
+      } else if (r < board.length - 1) {
+        return solveH(r + 1, c);
+      } else {
+        return false;
+      }
     }
-    return false;
   }
 }
