@@ -1,6 +1,8 @@
 public class QueenBoard {
+  //2D int array that stores the number of queens that attack each square, or -1 for a queen
   private int[][] board;
 
+  //Constructor
   public QueenBoard(int size) {
     board = new int[size][size];
   }
@@ -67,6 +69,9 @@ public class QueenBoard {
   }
 
   public boolean solveH(int r, int c) {
-    return true;
+    if (c == board.length) {
+      return true;
+    }
+    return false;
   }
 }
