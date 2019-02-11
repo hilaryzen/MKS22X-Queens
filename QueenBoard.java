@@ -25,15 +25,20 @@ public class QueenBoard {
   public boolean addQueen(int r, int c) {
     if (board[r][c] == 0) {
       board[r][c] = -1;
-      for (int i = c + 1; i < board.length; i++) {
-        board[r][i]++;
+      //Adds 1 to all squares on the row
+      for (int i = 0; i < board.length; i++) {
+        if (i != c) {
+          board[r][i]++;
+        }
       }
       int i = 1;
+      //Adds 1 to all squares on the diagonal down and right
       while (r + i < board.length && c + i < board[r].length) {
         board[r + i][c + i]++;
         i++;
       }
       i = 1;
+      //Adds 1 to all squares on the diagonal up and right
       while (r - i >= 0 && c + i < board[r].length) {
         board[r - i][c + i]++;
         i++;
@@ -70,28 +75,28 @@ public class QueenBoard {
   *@throws IllegalStateException when the board starts with any non-zero value
   */
   public boolean solve() {
-    int[] cols = new int[board.length];
-    return solveH(0,0, cols);
+    int[] rows = new int[board.length];
+    return solveH(0,0, rows);
   }
 
-  public boolean solveH(int r, int c, int[] cols) {
+  public boolean solveH(int r, int c, int[] rows) {
     if (r == board.length) {
       //Queens have been added to all rows
       return true;
     } else {
       if (addQueen(r,c)) {
-        //If queen can be added, move on to next row
-        cols[r] = c;
-        return solveH(r + 1, c, cols);
+        //If queen can be added, move on to next col
+        rows[c] = r;
+        return solveH(c + 1, 0, rows);
       } else {
-        if (c == board.length - 1) {
-          if (r == 0) {
+        if (r == board.length - 1) {
+          if (c == 0) {
             return false;
           }
-          removeQueen(r - 1, cols[r - 1]);
-          return solveH(r - 1, cols[r - 1], cols);
+          removeQueen(rows[c - 1], c - 1);
+          return solveH(rows[c - 1], c - 1, rows);
         } else {
-          return solveH(r, c + 1, cols);
+          return solveH(r + 1, c, rows);
         }
       }
     }

@@ -5,6 +5,7 @@ public class Driver {
 
     System.out.println(" ");
 
+
     System.out.println(board.addQueen(0,0));
     System.out.println(board.addQueen(4,0));
     System.out.println(board);
@@ -12,6 +13,15 @@ public class Driver {
     System.out.println(" ");
 
     System.out.println(board.removeQueen(0,0));
+    System.out.println(board.removeQueen(4,0));
     System.out.println(board);
+
+    System.out.println(" ");
+
+    System.out.println(board.addQueen(4,5));
+    System.out.println(board);
+
+    //System.out.println(board.solve());
+    //System.out.println(board);
   }
 }
