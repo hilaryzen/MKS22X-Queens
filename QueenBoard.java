@@ -85,7 +85,11 @@ public class QueenBoard {
         return solveH(r + 1, c, cols);
       } else {
         if (c == board.length - 1) {
-          return false;
+          if (r == 0) {
+            return false;
+          }
+          removeQueen(r - 1, cols[r - 1]);
+          return solveH(r - 1, cols[r - 1], cols);
         } else {
           return solveH(r, c + 1, cols);
         }
