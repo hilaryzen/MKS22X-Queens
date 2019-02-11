@@ -24,5 +24,11 @@ public class Driver {
 
     System.out.println(board.solve());
     System.out.println(board);
+
+    System.out.println(" ");
+
+    QueenBoard board1 = new QueenBoard(8);
+    System.out.println(board1.solve());
+    System.out.println(board1);
   }
 }
