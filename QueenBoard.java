@@ -80,21 +80,27 @@ public class QueenBoard {
   }
 
   public boolean solveH(int r, int c, int[] rows) {
-    if (r == board.length) {
-      //Queens have been added to all rows
+    if (c == board.length) {
+      //Queens have been added to all cols
       return true;
     } else {
       if (addQueen(r,c)) {
         //If queen can be added, move on to next col
         rows[c] = r;
-        return solveH(c + 1, 0, rows);
+        return solveH(0, c + 1, rows);
       } else {
         if (r == board.length - 1) {
           if (c == 0) {
             return false;
           }
-          removeQueen(rows[c - 1], c - 1);
-          return solveH(rows[c - 1], c - 1, rows);
+          //Backtracking
+          c--;
+          while (rows[c] == board.length - 1) {
+            removeQueen(rows[c], c);
+            c--;
+          }
+          removeQueen(rows[c], c);
+          return solveH(rows[c] + 1, c, rows);
         } else {
           return solveH(r + 1, c, rows);
         }
