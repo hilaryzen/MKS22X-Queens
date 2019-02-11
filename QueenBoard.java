@@ -25,11 +25,9 @@ public class QueenBoard {
   public boolean addQueen(int r, int c) {
     if (board[r][c] == 0) {
       board[r][c] = -1;
-      //Adds 1 to all squares on the row
-      for (int i = 0; i < board.length; i++) {
-        if (i != c) {
-          board[r][i]++;
-        }
+      //Adds 1 to all squares on the row to the right
+      for (int i = c + 1; i < board.length; i++) {
+        board[r][i]++;
       }
       int i = 1;
       //Adds 1 to all squares on the diagonal down and right
