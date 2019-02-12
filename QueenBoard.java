@@ -73,6 +73,13 @@ public class QueenBoard {
   *@throws IllegalStateException when the board starts with any non-zero value
   */
   public boolean solve() {
+    for (int i = 0; i < board.length; i++) {
+      for (int j = 0; j < board.length; j++) {
+        if (board[i][j] != 0) {
+          throw new IllegalStateException();
+        }
+      }
+    }
     return solveH(0);
   }
 
@@ -101,12 +108,12 @@ public class QueenBoard {
   public int countH(int c) {
     int total = 0;
     if (c == board.length) {
-      return 1;
+      return 1; //When board is solved add 1 to total
     }
     for (int r = 0; r < board.length; r++) {
       if (addQueen(r,c)) {
-        total = total + countH(c + 1);
-        removeQueen(r,c);
+        total = total + countH(c + 1); //Counts all solutions possible with queen in this position
+        removeQueen(r,c); //Removes queen and counts solutions with queen on next row
       }
     }
     return total;
