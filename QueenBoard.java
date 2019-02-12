@@ -83,6 +83,8 @@ public class QueenBoard {
     }
     for (int r = 0; r < board.length; r++) {
       if (addQueen(r,c)) {
+        //If queen can be added, method tests next column
+        //If not, queen is removed and the square below is checked
         if (solveH(c + 1)) {
           return true;
         }
@@ -90,5 +92,24 @@ public class QueenBoard {
       }
     }
     return false;
+  }
+
+  public int countSolutions() {
+    return countH(0,0);
+  }
+
+  public int countH(int c, int total) {
+    if (c == board.length) {
+      total++;
+    }
+    for (int r = 0; r < board.length; r++) {
+      if (addQueen(r,c)) {
+        if (solveH(c + 1)) {
+          total++;
+        }
+        removeQueen(r,c);
+      }
+    }
+    return total;
   }
 }
