@@ -73,36 +73,22 @@ public class QueenBoard {
   *@throws IllegalStateException when the board starts with any non-zero value
   */
   public boolean solve() {
-    int[] rows = new int[board.length];
-    return solveH(0,0, rows);
+    return solveH(0);
   }
 
-  public boolean solveH(int r, int c, int[] rows) {
+  public boolean solveH(int c) {
     if (c == board.length) {
       //Queens have been added to all cols
       return true;
-    } else {
+    }
+    for (int r = 0; r < board.length; r++) {
       if (addQueen(r,c)) {
-        //If queen can be added, move on to next col
-        rows[c] = r;
-        return solveH(0, c + 1, rows);
-      } else {
-        if (r == board.length - 1) {
-          if (c == 0) {
-            return false;
-          }
-          //Backtracking
-          c--;
-          while (rows[c] == board.length - 1) {
-            removeQueen(rows[c], c);
-            c--;
-          }
-          removeQueen(rows[c], c);
-          return solveH(rows[c] + 1, c, rows);
-        } else {
-          return solveH(r + 1, c, rows);
+        if (solveH(c + 1)) {
+          return true;
         }
+        removeQueen(r,c);
       }
     }
+    return false;
   }
 }

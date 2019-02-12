@@ -30,5 +30,11 @@ public class Driver {
     QueenBoard board1 = new QueenBoard(8);
     System.out.println(board1.solve());
     System.out.println(board1);
+
+    System.out.println(" ");
+
+    QueenBoard board2 = new QueenBoard(14);
+    System.out.println(board2.solve());
+    System.out.println(board2);
   }
 }
