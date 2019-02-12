@@ -45,7 +45,9 @@ public class Driver {
 
     System.out.println(" ");
 
-    System.out.println("Number of solutions for size 4: " + board.countSolutions());
-    System.out.println("Number of solutions for size 8: " + board1.countSolutions());
+    QueenBoard board4 = new QueenBoard(4);
+    System.out.println("Number of solutions for size 4: " + board4.countSolutions());
+    QueenBoard board5 = new QueenBoard(8);
+    System.out.println("Number of solutions for size 8: " + board5.countSolutions());
   }
 }

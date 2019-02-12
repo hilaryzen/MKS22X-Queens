@@ -101,7 +101,7 @@ public class QueenBoard {
   public int countH(int c) {
     int total = 0;
     if (c == board.length) {
-      return total;
+      return 1;
     }
     for (int r = 0; r < board.length; r++) {
       if (addQueen(r,c)) {
