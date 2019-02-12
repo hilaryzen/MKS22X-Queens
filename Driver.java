@@ -42,5 +42,10 @@ public class Driver {
     QueenBoard board3 = new QueenBoard(3);
     System.out.println(board3.solve());
     System.out.println(board3);
+
+    System.out.println(" ");
+
+    System.out.println("Number of solutions for size 4: " + board.countSolutions());
+    System.out.println("Number of solutions for size 8: " + board1.countSolutions());
   }
 }
