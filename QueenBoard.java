@@ -22,7 +22,7 @@ public class QueenBoard {
     return ans;
   }
 
-  public boolean addQueen(int r, int c) {
+  private boolean addQueen(int r, int c) {
     if (board[r][c] == 0) {
       board[r][c] = -1;
       //Adds 1 to all squares on the row to the right
@@ -46,7 +46,7 @@ public class QueenBoard {
     return false;
   }
 
-  public boolean removeQueen(int r, int c) {
+  private boolean removeQueen(int r, int c) {
     if (board[r][c] == -1) {
       board[r][c] = 0;
       for (int i = c + 1; i < board.length; i++) {
@@ -83,7 +83,7 @@ public class QueenBoard {
     return solveH(0);
   }
 
-  public boolean solveH(int c) {
+  private boolean solveH(int c) {
     if (c == board.length) {
       //Queens have been added to all cols
       return true;
@@ -105,7 +105,7 @@ public class QueenBoard {
     return countH(0);
   }
 
-  public int countH(int c) {
+  private int countH(int c) {
     int total = 0;
     if (c == board.length) {
       return 1; //When board is solved add 1 to total
