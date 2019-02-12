@@ -95,18 +95,17 @@ public class QueenBoard {
   }
 
   public int countSolutions() {
-    return countH(0,0);
+    return countH(0);
   }
 
-  public int countH(int c, int total) {
+  public int countH(int c) {
+    int total = 0;
     if (c == board.length) {
-      total++;
+      return total;
     }
     for (int r = 0; r < board.length; r++) {
       if (addQueen(r,c)) {
-        if (solveH(c + 1)) {
-          total++;
-        }
+        total = total + countH(c + 1);
         removeQueen(r,c);
       }
     }
